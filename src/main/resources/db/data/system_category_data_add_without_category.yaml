@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: system_category_data
+      author: alejandro.hernandez
+      dbms: mysql,h2
+      changes:
+        - insert:
+            tableName: system_category
+            columns:
+              - column:
+                  name: version
+                  value: 0
+              - column:
+                  name: name
+                  value: 'Sin categoria'
+              - column:
+                  name: color
+                  value: '#FFFFFF'
+              - column:
+                  name: finerio_connect_id
+                  value: '00000000-0000-0000-0000-000000000000'
+        - insert:
+            tableName: system_category
+            columns:
+              - column:
+                  name: version
+                  value: 0
+              - column:
+                  name: name
+                  value: 'Sin sub categoria'
+              - column:
+                  name: color
+                  value: '#FFFFFF'
+              - column:
+                  name: parent_id
+                  value: 91
+              - column:
+                  name: finerio_connect_id
+                  value: '00000000-0000-0000-0000-000000000000'

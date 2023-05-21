@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - include:
+      file: db/student.yaml
+  - include:
+      file: db/settings/student_settings.yaml
+  - include:
+      file: db/user.yaml
+  - include:
+      file: db/settings/user_settings.yaml
+  - include:
+      file: db/subjects.yaml
+  - include:
+      file: db/settings/subjects_settings.yaml
+  - include:
+      file: db/score.yaml
+  - include:
+      file: db/settings/scores_settings.yaml
+
+
+

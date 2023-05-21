@@ -1,0 +1,55 @@
+databaseChangeLog:
+  - changeSet:
+      id: user_id_pk
+      author: jesus.macias.benitez
+      dbms: mysql,h2,postgresql
+      preConditions:
+        - or:
+            - dbms:
+                type:  mysql,h2,postgresql
+      changes:
+        - addColumn:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+  - changeSet:
+      id: user_sequence_pk
+      author: jesus.macias.benitez
+      dbms: oracle
+      changes:
+        - createSequence:
+            cacheSize: 371717
+            cycle: true
+            maxValue: 10000000
+            incrementBy: 1
+            ordered: true
+            sequenceName: user_seq
+            startValue: 1
+  - changeSet:
+      id: user_oracle_id_pk
+      author: jesus.macias.benitez
+      dbms: oracle
+      preConditions:
+        - or:
+            - dbms:
+                type: oracle
+      changes:
+        - addColumn:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: SERIAL
+                  valueComputed: user_seq.NEXTVAL
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+
+
+

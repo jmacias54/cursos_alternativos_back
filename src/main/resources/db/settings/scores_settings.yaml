@@ -1,0 +1,79 @@
+databaseChangeLog:
+  - changeSet:
+      id: scores_id_pk
+      author: jesus.macias.benitez
+      dbms: mysql,h2,postgresql
+      preConditions:
+        - or:
+            - dbms:
+                type:  mysql,h2,postgresql
+      changes:
+        - addColumn:
+            tableName: scores
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+  - changeSet:
+      id: scores_sequence_pk
+      author: jesus.macias.benitez
+      dbms: oracle
+      changes:
+        - createSequence:
+            cacheSize: 371717
+            cycle: true
+            maxValue: 10000000
+            incrementBy: 1
+            ordered: true
+            sequenceName: scores_seq
+            startValue: 1
+  - changeSet:
+      id: scores_oracle_id_pk
+      author: jesus.macias.benitez
+      dbms: oracle
+      preConditions:
+        - or:
+            - dbms:
+                type: oracle
+      changes:
+        - addColumn:
+            tableName: scores
+            columns:
+              - column:
+                  name: id
+                  type: SERIAL
+                  valueComputed: scores.NEXTVAL
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+
+  - changeSet:
+      id: scores_student_fk
+      author: jesus.macias.benitez
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: student_id
+            baseTableName: scores
+            constraintName: fk_scores_student
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: student
+  - changeSet:
+      id: scores_subject_fk
+      author: jesus.macias.benitez
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: subject_id
+            baseTableName: scores
+            constraintName: fk_scores_subject
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: subjects
+
+

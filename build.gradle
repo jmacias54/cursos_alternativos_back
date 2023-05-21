@@ -1,0 +1,46 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.mx.school'
+version = '1.0.0'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.4'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'jakarta.validation:jakarta.validation-api'
+	implementation 'com.google.code.findbugs:jsr305:3.0.2'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.0'
+	implementation 'org.springframework.cloud:spring-cloud-starter-oauth2:2.2.5.RELEASE'
+
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+	implementation 'org.liquibase:liquibase-core'
+	compileOnly 'org.projectlombok:lombok:1.18.22'
+	annotationProcessor 'org.projectlombok:lombok:1.18.22'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'org.postgresql:postgresql'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation group: 'org.zalando', name: 'logbook-spring-boot-starter', version: '2.14.0'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-amqp', version: '2.6.4'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+}
+
+test {
+	useJUnitPlatform()
+}

@@ -1,0 +1,52 @@
+databaseChangeLog:
+  - changeSet:
+      id: subjects_id_pk
+      author: jesus.macias.benitez
+      dbms: mysql,h2,postgresql
+      preConditions:
+        - or:
+            - dbms:
+                type:  mysql,h2,postgresql
+      changes:
+        - addColumn:
+            tableName: subjects
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+  - changeSet:
+      id: subjects_sequence_pk
+      author: jesus.macias.benitez
+      dbms: oracle
+      changes:
+        - createSequence:
+            cacheSize: 371717
+            cycle: true
+            maxValue: 10000000
+            incrementBy: 1
+            ordered: true
+            sequenceName: subjects_seq
+            startValue: 1
+  - changeSet:
+      id: subjects_oracle_id_pk
+      author: jesus.macias.benitez
+      dbms: oracle
+      preConditions:
+        - or:
+            - dbms:
+                type: oracle
+      changes:
+        - addColumn:
+            tableName: subjects
+            columns:
+              - column:
+                  name: id
+                  type: SERIAL
+                  valueComputed: subjects_seq.NEXTVAL
+                  constraints:
+                    nullable: false
+                    primaryKey: true

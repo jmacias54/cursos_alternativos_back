@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: subjects
+      author: jesus.macias.benitez
+      changes:
+        - createTable:
+            tableName: subjects
+            columns:
+              - column:
+                  name: name
+                  type: java.sql.Types.VARCHAR(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: enabled
+                  type: BOOLEAN
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date_created
+                  type: DATETIME(6)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_updated
+                  type: DATETIME(6)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date_deleted
+                  type: DATETIME(6)
+                  constraints:
+                    nullable: true

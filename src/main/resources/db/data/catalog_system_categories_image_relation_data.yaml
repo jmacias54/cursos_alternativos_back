@@ -1,0 +1,173 @@
+databaseChangeLog:
+  - changeSet:
+      id: catalog_system_categories_image_relation_data.yaml
+      author:  gloria.leyva.jerez
+      changes:
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 50
+             tableName: system_category
+             where: finerio_connect_id='00000000-0000-0000-0000-000000000001'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 50
+             tableName: system_category
+             where:  parent_id='1'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 51
+             tableName: system_category
+             where: finerio_connect_id='00000000-0000-0000-0000-000000000002'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 51
+             tableName: system_category
+             where:  parent_id='2'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 52
+             tableName: system_category
+             where: finerio_connect_id='00000000-0000-0000-0000-000000000003'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 52
+             tableName: system_category
+             where:  parent_id='3'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 53
+             tableName: system_category
+             where: finerio_connect_id='00000000-0000-0000-0000-000000000005'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 53
+             tableName: system_category
+             where:  parent_id='4'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 54
+             tableName: system_category
+             where: finerio_connect_id='00000000-0000-0000-0000-000000000006'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 54
+             tableName: system_category
+             where:  parent_id='5'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 55
+             tableName: system_category
+             where: finerio_connect_id='00000000-0000-0000-0000-000000000007'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 55
+             tableName: system_category
+             where:  parent_id='6'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 56
+             tableName: system_category
+             where: finerio_connect_id='00000000-0000-0000-0000-000000000008'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 56
+             tableName: system_category
+             where:  parent_id='7'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 57
+             tableName: system_category
+             where: finerio_connect_id='00000000-0000-0000-0000-000000000009'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 57
+             tableName: system_category
+             where:  parent_id='8'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 58
+             tableName: system_category
+             where: finerio_connect_id='00000000-0000-0000-0000-00000000000b'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 58
+             tableName: system_category
+             where:  parent_id='9'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 59
+             tableName: system_category
+             where: finerio_connect_id='00000000-0000-0000-0000-000000000046'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 59
+             tableName: system_category
+             where:  parent_id='10'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 60
+             tableName: system_category
+             where: finerio_connect_id='00000000-0000-0000-0000-000000000047'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 60
+             tableName: system_category
+             where:  parent_id='11'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 61
+             tableName: system_category
+             where: finerio_connect_id='00000000-0000-0000-0000-000000000050'
+        -  update:
+             columns:
+               -  column:
+                    name: image_id
+                    value: 61
+             tableName: system_category
+             where:  parent_id='12'

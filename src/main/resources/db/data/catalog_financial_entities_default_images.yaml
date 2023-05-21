@@ -1,0 +1,18 @@
+# Add images for default financial entities
+databaseChangeLog:
+  - changeSet:
+      id: catalog_financial_entities_default_images
+      author: gloria.leyva.jerez
+      changes:
+        - insert:
+            tableName: image
+            columns:
+              - column:
+                  name: id
+                  value: 67
+              - column:
+                  name: cdn_path
+                  value: 'https://cdn.finerio.mx/pfm/br/financial-entities/cash.svg'
+              - column:
+                  name: type
+                  value: 1

@@ -1,0 +1,150 @@
+# Add category images to catalog
+databaseChangeLog:
+  - changeSet:
+      id: catalog_system_category_image
+      author: gloria.leyva.jerez
+      changes:
+        - insert:
+            tableName: image
+            columns:
+              - column:
+                  name: id
+                  value: 50
+              - column:
+                  name: cdn_path
+                  value: 'https://cdn.finerio.mx/pfm/categories/1.svg'
+              - column:
+                  name: type
+                  value: 2
+        - insert:
+            tableName: image
+            columns:
+              - column:
+                  name: id
+                  value: 51
+              - column:
+                  name: cdn_path
+                  value: 'https://cdn.finerio.mx/pfm/categories/2.svg'
+              - column:
+                  name: type
+                  value: 2
+        - insert:
+            tableName: image
+            columns:
+              - column:
+                  name: id
+                  value: 52
+              - column:
+                  name: cdn_path
+                  value: 'https://cdn.finerio.mx/pfm/categories/3.svg'
+              - column:
+                  name: type
+                  value: 2
+        - insert:
+            tableName: image
+            columns:
+              - column:
+                  name: id
+                  value: 53
+              - column:
+                  name: cdn_path
+                  value: 'https://cdn.finerio.mx/pfm/categories/5.svg'
+              - column:
+                  name: type
+                  value: 2
+        - insert:
+            tableName: image
+            columns:
+              - column:
+                  name: id
+                  value: 54
+              - column:
+                  name: cdn_path
+                  value: 'https://cdn.finerio.mx/pfm/categories/6.svg'
+              - column:
+                  name: type
+                  value: 2
+        - insert:
+            tableName: image
+            columns:
+              - column:
+                  name: id
+                  value: 55
+              - column:
+                  name: cdn_path
+                  value: 'https://cdn.finerio.mx/pfm/categories/7.svg'
+              - column:
+                  name: type
+                  value: 2
+        - insert:
+            tableName: image
+            columns:
+              - column:
+                  name: id
+                  value: 56
+              - column:
+                  name: cdn_path
+                  value: 'https://cdn.finerio.mx/pfm/categories/8.svg'
+              - column:
+                  name: type
+                  value: 2
+        - insert:
+            tableName: image
+            columns:
+              - column:
+                  name: id
+                  value: 57
+              - column:
+                  name: cdn_path
+                  value: 'https://cdn.finerio.mx/pfm/categories/9.svg'
+              - column:
+                  name: type
+                  value: 2
+        - insert:
+            tableName: image
+            columns:
+              - column:
+                  name: id
+                  value: 58
+              - column:
+                  name: cdn_path
+                  value: 'https://cdn.finerio.mx/pfm/categories/b.svg'
+              - column:
+                  name: type
+                  value: 2
+        - insert:
+            tableName: image
+            columns:
+              - column:
+                  name: id
+                  value: 59
+              - column:
+                  name: cdn_path
+                  value: 'https://cdn.finerio.mx/pfm/categories/46.svg'
+              - column:
+                  name: type
+                  value: 2
+        - insert:
+            tableName: image
+            columns:
+              - column:
+                  name: id
+                  value: 60
+              - column:
+                  name: cdn_path
+                  value: 'https://cdn.finerio.mx/pfm/categories/47.svg'
+              - column:
+                  name: type
+                  value: 2
+        - insert:
+            tableName: image
+            columns:
+              - column:
+                  name: id
+                  value: 61
+              - column:
+                  name: cdn_path
+                  value: 'https://cdn.finerio.mx/pfm/categories/50.svg'
+              - column:
+                  name: type
+                  value: 2
