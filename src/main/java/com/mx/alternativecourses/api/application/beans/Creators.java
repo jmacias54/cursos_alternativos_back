@@ -1,5 +1,7 @@
 package com.mx.alternativecourses.api.application.beans;
 
+import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.score.create.ScoreCreateCreator;
+import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.score.update.ScoreUpdateCreator;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.student.create.StudentCreateCreator;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.student.update.StudentUpdateCreator;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.user.UserCreateCreator;
@@ -12,6 +14,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Creators {
 
+	@Bean
+	public ScoreCreateCreator scoreCreateCreator() {
+		return new ScoreCreateCreator();
+	}
+
+	@Bean
+	public ScoreUpdateCreator scoreUpdateCreator() {
+		return new ScoreUpdateCreator();
+	}
 
 	@Bean
 	public StudentUpdateCreator studentUpdateCreator() {

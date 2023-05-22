@@ -4,6 +4,7 @@ import com.mx.alternativecourses.api.domain.model.ScoreDomain;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.score.create.ScoreCreateInput;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.score.update.ScoreUpdateInput;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ScoreRepository {
@@ -17,5 +18,10 @@ public interface ScoreRepository {
 	Optional<ScoreDomain>  findByStudentIdAndSubjectId(Long studentId,Long subjectId);
 
 	void delete(Long id);
+
+	List<ScoreDomain> findAll();
+
+	List<ScoreDomain> findByStudentId(Long studentId);
+
 
 }

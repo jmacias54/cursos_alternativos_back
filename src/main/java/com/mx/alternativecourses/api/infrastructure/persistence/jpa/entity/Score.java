@@ -1,10 +1,7 @@
 package com.mx.alternativecourses.api.infrastructure.persistence.jpa.entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
@@ -16,7 +13,7 @@ import java.util.Optional;
 
 @Data
 @Entity
-@Table(name = "SCORE", schema = "public")
+@Table(name = "SCORES", schema = "public")
 @Accessors(chain = true)
 public class Score {
 
@@ -45,7 +42,6 @@ public class Score {
 	@Column(name = "LAST_UPDATED")
 	private Date lastUpdated;
 
-	@Builder.Default
 	@Column(name = "DATE_DELETED")
 	private Date dateDeleted = null;
 

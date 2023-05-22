@@ -7,11 +7,11 @@ import com.mx.alternativecourses.api.application.controller.api.subjects.create.
 import com.mx.alternativecourses.api.application.controller.api.subjects.detail.SubjectResponse;
 import com.mx.alternativecourses.api.application.controller.api.subjects.edit.SubjectUpdateRequest;
 import com.mx.alternativecourses.api.domain.model.SubjectDomain;
-import com.mx.alternativecourses.api.domain.use_case.access.subject.create.SubjectCrateUseCase;
-import com.mx.alternativecourses.api.domain.use_case.access.subject.delete.SubjectDeleteUseCase;
-import com.mx.alternativecourses.api.domain.use_case.access.subject.detail.SubjectGetDetailUseCase;
-import com.mx.alternativecourses.api.domain.use_case.access.subject.edit.SubjectUpdateUseCase;
-import com.mx.alternativecourses.api.domain.use_case.access.subject.list.SubjectSearchUseCase;
+import com.mx.alternativecourses.api.domain.use_case.subject.create.SubjectCrateUseCase;
+import com.mx.alternativecourses.api.domain.use_case.subject.delete.SubjectDeleteUseCase;
+import com.mx.alternativecourses.api.domain.use_case.subject.detail.SubjectGetDetailUseCase;
+import com.mx.alternativecourses.api.domain.use_case.subject.edit.SubjectUpdateUseCase;
+import com.mx.alternativecourses.api.domain.use_case.subject.list.SubjectSearchUseCase;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.subject.create.SubjectCreateInput;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.subject.update.SubjectUpdateInput;
 import lombok.RequiredArgsConstructor;

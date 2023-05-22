@@ -1,5 +1,6 @@
 package com.mx.alternativecourses.api.application.controller.api.scores.detail;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -25,11 +26,16 @@ public class ScoreDetailResponse {
 	@JsonProperty("subjectId")
 	private final Long subjectId;
 
+	@Schema(description = "The subject.", example = "geometry")
+	@JsonProperty("subject")
+	private final String subject;
+
 	@Schema(description = "Student grade.", example = "8.6")
 	@JsonProperty("score")
 	private final BigDecimal score;
 
 	@Schema(description = "Date of registration of score.", example = "2023/05/01")
+	@JsonFormat(pattern = "yyyy/MM/dd")
 	@JsonProperty("registrationDate")
 	private final Date registrationDate;
 

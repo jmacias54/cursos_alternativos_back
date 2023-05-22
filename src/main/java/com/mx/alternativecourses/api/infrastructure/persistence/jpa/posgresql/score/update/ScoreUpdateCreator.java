@@ -3,15 +3,16 @@ package com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.s
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.entity.Score;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.entity.Student;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.entity.Subject;
-import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.score.create.ScoreCreateInput;
+
+import java.util.Optional;
 
 public class ScoreUpdateCreator {
-	public Score create(ScoreCreateInput input, Student student, Subject subject) {
-		return new Score()
-			.setScore(input.getScore())
-			.setStudent(student)
-			.setSubject(subject)
-			.setRegistrationDate(input.getRegistrationDate());
+	public Score create(ScoreUpdateInput input, Optional<Student> student, Optional<Subject> subject, Score score) {
 
+		student.ifPresent(score::setStudent);
+		subject.ifPresent(score::setSubject);
+		input.getScore().ifPresent(score::setScore);
+		input.getRegistrationDate().ifPresent(score::setDateCreated);
+		return score;
 	}
 }

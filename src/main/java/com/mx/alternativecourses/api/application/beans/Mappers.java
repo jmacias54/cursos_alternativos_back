@@ -21,6 +21,8 @@ import com.mx.alternativecourses.api.application.controller.api.student.create.S
 import com.mx.alternativecourses.api.application.controller.api.student.create.StudentCreateRequestToStudentCreateInputMapper;
 import com.mx.alternativecourses.api.application.controller.api.student.detail.StudentDomainToStudentResponseMapper;
 import com.mx.alternativecourses.api.application.controller.api.student.detail.StudentResponse;
+import com.mx.alternativecourses.api.application.controller.api.student.detail.StudentScoresDomainToStudentScoresResponseMapper;
+import com.mx.alternativecourses.api.application.controller.api.student.detail.StudentScoresResponse;
 import com.mx.alternativecourses.api.application.controller.api.student.update.StudentUpdateRequest;
 import com.mx.alternativecourses.api.application.controller.api.student.update.StudentUpdateRequestToStudentUpdateInputMapper;
 import com.mx.alternativecourses.api.application.controller.api.subjects.create.SubjectCreateRequest;
@@ -53,6 +55,16 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Mappers {
 
+	@Bean
+	public Mapper<StudentScoresDomain, StudentScoresResponse> studentScoresDomainToStudentScoresResponseMapper(
+		Mapper<StudentDomain, StudentResponse> studentDomainToStudentResponseMapper,
+		Mapper<ScoreDomain, ScoreDetailResponse> scoreDomainToScoreDetailResponseMapper
+	) {
+		return new StudentScoresDomainToStudentScoresResponseMapper(
+			studentDomainToStudentResponseMapper,
+			scoreDomainToScoreDetailResponseMapper
+		);
+	}
 
 	@Bean
 	public Mapper<Score, ScoreDomain> scoreToScoreDomainMapper() {

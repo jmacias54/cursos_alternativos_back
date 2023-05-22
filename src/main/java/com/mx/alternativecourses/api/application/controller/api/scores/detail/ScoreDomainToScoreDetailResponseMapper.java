@@ -10,6 +10,7 @@ public class ScoreDomainToScoreDetailResponseMapper implements Mapper<ScoreDomai
 			domain.getId(),
 			domain.getStudentId(),
 			domain.getSubjectId(),
+			domain.getSubject(),
 			domain.getScore(),
 			domain.getRegistrationDate()
 		);

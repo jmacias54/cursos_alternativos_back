@@ -1,4 +1,4 @@
-package com.mx.alternativecourses.api.domain.use_case.access.subject.list;
+package com.mx.alternativecourses.api.domain.use_case.subject.list;
 
 import com.mx.alternativecourses.api.domain.model.SubjectDomain;
 import com.mx.alternativecourses.api.domain.repository.SubjectRepository;

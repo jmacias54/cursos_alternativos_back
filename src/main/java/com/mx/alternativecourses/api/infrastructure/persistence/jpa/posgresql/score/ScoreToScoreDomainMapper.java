@@ -11,6 +11,7 @@ public class ScoreToScoreDomainMapper implements Mapper<Score, ScoreDomain> {
 			score.getScore(),
 			score.getRegistrationDate(),
 			score.getStudent().getId(),
-			score.getSubject().getId());
+			score.getSubject().getId(),
+			score.getSubject().getName());
 	}
 }

@@ -5,8 +5,10 @@ import com.mx.alternativecourses.api.application.configuration.constants.GlobalC
 import com.mx.alternativecourses.api.application.contract.Mapper;
 import com.mx.alternativecourses.api.application.controller.api.student.create.StudentCreateRequest;
 import com.mx.alternativecourses.api.application.controller.api.student.detail.StudentResponse;
+import com.mx.alternativecourses.api.application.controller.api.student.detail.StudentScoresResponse;
 import com.mx.alternativecourses.api.application.controller.api.student.update.StudentUpdateRequest;
 import com.mx.alternativecourses.api.domain.model.StudentDomain;
+import com.mx.alternativecourses.api.domain.model.StudentScoresDomain;
 import com.mx.alternativecourses.api.domain.use_case.student.create.StudentCrateUseCase;
 import com.mx.alternativecourses.api.domain.use_case.student.detail.StudentGetDetailUseCase;
 import com.mx.alternativecourses.api.domain.use_case.student.list.StudentSearchUseCase;
@@ -34,6 +36,7 @@ public class StudentsApiController {
 	private final Mapper<StudentUpdateRequest, StudentUpdateInput> studentUpdateRequestToStudentUpdateInputMapper;
 	private final Mapper<StudentCreateRequest, StudentCreateInput> studentCreateRequestToStudentCreateInputMapper;
 	private final Mapper<StudentDomain, StudentResponse> studentDomainToStudentResponseMapper;
+	private final Mapper<StudentScoresDomain, StudentScoresResponse> studentScoresDomainToStudentScoresResponseMapper;
 
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<StudentResponse> create(@Valid @RequestBody StudentCreateRequest request) {
@@ -60,11 +63,11 @@ public class StudentsApiController {
 	}
 
 	@GetMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<StudentResponse> detail(
+	public ResponseEntity<StudentScoresResponse> detail(
 		@PathVariable("id") Long studentId
 	) {
 		return ResponseEntity.ok(
-			this.studentDomainToStudentResponseMapper.map(
+			this.studentScoresDomainToStudentScoresResponseMapper.map(
 				this.studentGetDetailUseCase.execute(
 					studentId
 				)

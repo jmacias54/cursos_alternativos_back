@@ -14,4 +14,5 @@ public class ScoreDomain {
 	private final Date registrationDate;
 	private final Long studentId;
 	private final Long subjectId;
+	private final String subject;
 }

@@ -1,4 +1,4 @@
-package com.mx.alternativecourses.api.domain.use_case.access.subject.delete;
+package com.mx.alternativecourses.api.domain.use_case.subject.delete;
 
 import com.mx.alternativecourses.api.domain.exception.BadRequestException;
 import com.mx.alternativecourses.api.domain.repository.SubjectRepository;

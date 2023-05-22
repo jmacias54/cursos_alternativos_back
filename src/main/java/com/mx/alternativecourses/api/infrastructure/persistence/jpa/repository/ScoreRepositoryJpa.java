@@ -7,6 +7,7 @@ import com.mx.alternativecourses.api.infrastructure.persistence.jpa.entity.Stude
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -17,4 +18,5 @@ public interface ScoreRepositoryJpa extends JpaRepository<Score,Long> {
 		Long subjectId
 	);
 
+	List<Score> findByStudent_IdAndDateDeletedIsNull(Long studentId);
 }

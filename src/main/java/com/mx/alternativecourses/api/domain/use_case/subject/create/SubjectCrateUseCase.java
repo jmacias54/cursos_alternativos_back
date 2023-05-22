@@ -1,4 +1,4 @@
-package com.mx.alternativecourses.api.domain.use_case.access.subject.create;
+package com.mx.alternativecourses.api.domain.use_case.subject.create;
 
 import com.mx.alternativecourses.api.domain.exception.BadRequestException;
 import com.mx.alternativecourses.api.domain.model.SubjectDomain;

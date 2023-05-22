@@ -1,4 +1,4 @@
-package com.mx.alternativecourses.api.domain.use_case.access.subject.edit;
+package com.mx.alternativecourses.api.domain.use_case.subject.detail;
 
 import com.mx.alternativecourses.api.domain.exception.BadRequestException;
 import com.mx.alternativecourses.api.domain.model.SubjectDomain;
@@ -7,16 +7,15 @@ import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.su
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class SubjectUpdateUseCase {
+public class SubjectGetDetailUseCase {
+
 	private final SubjectRepository subjectRepository;
 
-	public SubjectDomain execute(Long id, SubjectUpdateInput input) {
-		if(this.subjectRepository.findByName(input.getName()).isPresent())
-			throw new BadRequestException("subject.name.exist");
+	public SubjectDomain execute(Long id) {
 
 		if(this.subjectRepository.find(id).isEmpty())
 			throw new BadRequestException("subject.notFound");
 
-		return this.subjectRepository.update(id, input);
+		return this.subjectRepository.find(id).get();
 	}
 }
