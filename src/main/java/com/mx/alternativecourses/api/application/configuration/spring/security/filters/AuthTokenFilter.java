@@ -76,6 +76,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 
 		return !path.startsWith(GlobalConstants.SIGNUP) &&
 			!path.startsWith(GlobalConstants.SCORES) &&
+			!path.startsWith(GlobalConstants.SUBJECTS) &&
 			!path.startsWith(GlobalConstants.STUDENTS);
 	}
 

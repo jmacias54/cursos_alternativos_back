@@ -17,23 +17,55 @@ import com.mx.alternativecourses.api.application.controller.api.student.detail.S
 import com.mx.alternativecourses.api.application.controller.api.student.detail.StudentResponse;
 import com.mx.alternativecourses.api.application.controller.api.student.update.StudentUpdateRequest;
 import com.mx.alternativecourses.api.application.controller.api.student.update.StudentUpdateRequestToStudentUpdateInputMapper;
+import com.mx.alternativecourses.api.application.controller.api.subjects.create.SubjectCreateRequest;
+import com.mx.alternativecourses.api.application.controller.api.subjects.create.SubjectCreateRequestToSubjectCreateInputMapper;
+import com.mx.alternativecourses.api.application.controller.api.subjects.detail.SubjectDomainToSubjectResponseMapper;
+import com.mx.alternativecourses.api.application.controller.api.subjects.detail.SubjectResponse;
+import com.mx.alternativecourses.api.application.controller.api.subjects.edit.SubjectUpdateRequest;
+import com.mx.alternativecourses.api.application.controller.api.subjects.edit.SubjectUpdateRequestToSubjectUpdateInputMapper;
 import com.mx.alternativecourses.api.domain.model.LoginInfo;
 import com.mx.alternativecourses.api.domain.model.StudentDomain;
+import com.mx.alternativecourses.api.domain.model.SubjectDomain;
 import com.mx.alternativecourses.api.domain.model.UserDomain;
 import com.mx.alternativecourses.api.domain.use_case.access.login.LoginInput;
 import com.mx.alternativecourses.api.domain.use_case.access.signup.SignupInfo;
 import com.mx.alternativecourses.api.domain.use_case.access.signup.SignupInput;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.entity.Student;
+import com.mx.alternativecourses.api.infrastructure.persistence.jpa.entity.Subject;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.entity.User;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.student.StudentToStudentDomainMapper;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.student.create.StudentCreateInput;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.student.update.StudentUpdateInput;
+import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.subject.SubjectToSubjectDomainMapper;
+import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.subject.create.SubjectCreateInput;
+import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.subject.update.SubjectUpdateInput;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.user.UserToUserDomainMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class Mappers {
+
+
+	@Bean
+	public Mapper<SubjectDomain, SubjectResponse> subjectDomainToSubjectResponseMapper() {
+		return new SubjectDomainToSubjectResponseMapper();
+	}
+
+	@Bean
+	public Mapper<SubjectCreateRequest, SubjectCreateInput> subjectCreateRequestToSubjectCreateInputMapper() {
+		return new SubjectCreateRequestToSubjectCreateInputMapper();
+	}
+
+	@Bean
+	public Mapper<SubjectUpdateRequest, SubjectUpdateInput> subjectUpdateRequestToSubjectUpdateInputMapper() {
+		return new SubjectUpdateRequestToSubjectUpdateInputMapper();
+	}
+
+	@Bean
+	public Mapper<Subject, SubjectDomain> subjectToSubjectDomainMapper() {
+		return new SubjectToSubjectDomainMapper();
+	}
 
 	@Bean
 	public Mapper<StudentUpdateRequest, StudentUpdateInput> studentUpdateRequestToStudentUpdateInputMapper() {

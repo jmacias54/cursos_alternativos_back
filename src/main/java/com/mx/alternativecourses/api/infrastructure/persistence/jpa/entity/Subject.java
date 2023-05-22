@@ -1,9 +1,8 @@
 package com.mx.alternativecourses.api.infrastructure.persistence.jpa.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -12,12 +11,10 @@ import java.util.Date;
 import java.util.Optional;
 
 
-@Builder
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
-@Table(name = "SUBJECT", schema = "public")
+@Table(name = "SUBJECTS", schema = "public")
+@Accessors(chain = true)
 public class Subject {
 
 	@Id
@@ -28,7 +25,6 @@ public class Subject {
 	@Column(name = "NAME")
 	private String name;
 
-	@Builder.Default
 	@Column(name = "ENABLED")
 	private boolean enabled = true;
 
@@ -38,7 +34,6 @@ public class Subject {
 	@Column(name = "LAST_UPDATED")
 	private Date lastUpdated;
 
-	@Builder.Default
 	@Column(name = "DATE_DELETED")
 	private Date dateDeleted = null;
 
