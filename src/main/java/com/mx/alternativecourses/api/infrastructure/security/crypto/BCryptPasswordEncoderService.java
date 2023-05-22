@@ -1,4 +1,4 @@
-package com.mx.alternativecourses.api.infrastructure.persistence.security.crypto;
+package com.mx.alternativecourses.api.infrastructure.security.crypto;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;

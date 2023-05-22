@@ -1,8 +1,8 @@
-package com.mx.alternativecourses.api.infrastructure.persistence.security.jwt;
+package com.mx.alternativecourses.api.infrastructure.security.jwt;
 
 import com.mx.alternativecourses.api.application.configuration.properties.TokenProperties;
 import com.mx.alternativecourses.api.domain.services.security.TokenGenerator;
-import com.mx.alternativecourses.api.infrastructure.persistence.security.UserDetailsImpl;
+import com.mx.alternativecourses.api.infrastructure.security.UserDetailsImpl;
 import io.jsonwebtoken.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

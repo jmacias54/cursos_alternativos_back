@@ -1,4 +1,4 @@
-package com.mx.alternativecourses.api.infrastructure.persistence.security;
+package com.mx.alternativecourses.api.infrastructure.security;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

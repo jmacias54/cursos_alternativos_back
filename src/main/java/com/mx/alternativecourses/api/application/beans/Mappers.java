@@ -11,18 +11,49 @@ import com.mx.alternativecourses.api.application.controller.api.access.signup.re
 import com.mx.alternativecourses.api.application.controller.api.access.signup.response.UserResponse;
 import com.mx.alternativecourses.api.application.controller.api.access.signup.response.UserResponseMapper;
 import com.mx.alternativecourses.api.application.configuration.properties.TokenProperties;
+import com.mx.alternativecourses.api.application.controller.api.student.create.StudentCreateRequest;
+import com.mx.alternativecourses.api.application.controller.api.student.create.StudentCreateRequestToStudentCreateInputMapper;
+import com.mx.alternativecourses.api.application.controller.api.student.detail.StudentDomainToStudentResponseMapper;
+import com.mx.alternativecourses.api.application.controller.api.student.detail.StudentResponse;
+import com.mx.alternativecourses.api.application.controller.api.student.update.StudentUpdateRequest;
+import com.mx.alternativecourses.api.application.controller.api.student.update.StudentUpdateRequestToStudentUpdateInputMapper;
 import com.mx.alternativecourses.api.domain.model.LoginInfo;
+import com.mx.alternativecourses.api.domain.model.StudentDomain;
 import com.mx.alternativecourses.api.domain.model.UserDomain;
 import com.mx.alternativecourses.api.domain.use_case.access.login.LoginInput;
 import com.mx.alternativecourses.api.domain.use_case.access.signup.SignupInfo;
 import com.mx.alternativecourses.api.domain.use_case.access.signup.SignupInput;
+import com.mx.alternativecourses.api.infrastructure.persistence.jpa.entity.Student;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.entity.User;
+import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.student.StudentToStudentDomainMapper;
+import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.student.create.StudentCreateInput;
+import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.student.update.StudentUpdateInput;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.user.UserToUserDomainMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class Mappers {
+
+	@Bean
+	public Mapper<StudentUpdateRequest, StudentUpdateInput> studentUpdateRequestToStudentUpdateInputMapper() {
+		return new StudentUpdateRequestToStudentUpdateInputMapper();
+	}
+
+	@Bean
+	public Mapper<StudentCreateRequest, StudentCreateInput> studentCreateRequestToStudentCreateInputMapper() {
+		return new StudentCreateRequestToStudentCreateInputMapper();
+	}
+
+	@Bean
+	public Mapper<StudentDomain, StudentResponse> studentDomainToStudentResponseMapper() {
+		return new StudentDomainToStudentResponseMapper();
+	}
+
+	@Bean
+	public Mapper<Student, StudentDomain> studentToStudentDomainMapper() {
+		return new StudentToStudentDomainMapper();
+	}
 
 	@Bean
 	public Mapper<User, UserDomain> userToUserDomainMapper() {

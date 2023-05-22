@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -12,12 +13,10 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Optional;
 
-@Builder
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "STUDENT", schema = "public")
+@Accessors(chain = true)
 public class Student {
 
 	@Id
@@ -62,4 +61,9 @@ public class Student {
 	public Optional<Date> getDateDeleted() {
 		return Optional.ofNullable(this.dateDeleted);
 	}
+
+	public Optional<String> getSecondLastName() {
+		return Optional.ofNullable(this.secondLastName);
+	}
+
 }

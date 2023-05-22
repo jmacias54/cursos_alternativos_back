@@ -34,9 +34,6 @@ public class Score {
 	@JoinColumn(name = "SUBJECT_ID")
 	private Subject subject;
 
-	@Column(name = "NAME")
-	private String name;
-
 	@Column(name = "score")
 	private BigDecimal score;
 

@@ -1,4 +1,4 @@
-package com.mx.alternativecourses.api.infrastructure.persistence.security;
+package com.mx.alternativecourses.api.infrastructure.security;
 
 import com.mx.alternativecourses.api.domain.model.AuthenticationInfo;
 import com.mx.alternativecourses.api.domain.services.security.TokenGenerator;

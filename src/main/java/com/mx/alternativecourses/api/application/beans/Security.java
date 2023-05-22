@@ -6,9 +6,9 @@ import com.mx.alternativecourses.api.application.configuration.spring.security.f
 import com.mx.alternativecourses.api.domain.repository.UserRepository;
 import com.mx.alternativecourses.api.domain.services.security.TokenGenerator;
 import com.mx.alternativecourses.api.domain.services.security.UserAuthenticationManager;
-import com.mx.alternativecourses.api.infrastructure.persistence.security.*;
-import com.mx.alternativecourses.api.infrastructure.persistence.security.crypto.BCryptPasswordEncoderService;
-import com.mx.alternativecourses.api.infrastructure.persistence.security.jwt.JwtTokenGenerator;
+import com.mx.alternativecourses.api.infrastructure.security.*;
+import com.mx.alternativecourses.api.infrastructure.security.crypto.BCryptPasswordEncoderService;
+import com.mx.alternativecourses.api.infrastructure.security.jwt.JwtTokenGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
