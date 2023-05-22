@@ -11,6 +11,12 @@ import com.mx.alternativecourses.api.application.controller.api.access.signup.re
 import com.mx.alternativecourses.api.application.controller.api.access.signup.response.UserResponse;
 import com.mx.alternativecourses.api.application.controller.api.access.signup.response.UserResponseMapper;
 import com.mx.alternativecourses.api.application.configuration.properties.TokenProperties;
+import com.mx.alternativecourses.api.application.controller.api.scores.create.ScoreCreateRequest;
+import com.mx.alternativecourses.api.application.controller.api.scores.create.ScoreCreateRequestToScoreCreateInputMapper;
+import com.mx.alternativecourses.api.application.controller.api.scores.detail.ScoreDetailResponse;
+import com.mx.alternativecourses.api.application.controller.api.scores.detail.ScoreDomainToScoreDetailResponseMapper;
+import com.mx.alternativecourses.api.application.controller.api.scores.update.ScoreUpdateRequest;
+import com.mx.alternativecourses.api.application.controller.api.scores.update.ScoreUpdateRequestToScoreUpdateInputMapper;
 import com.mx.alternativecourses.api.application.controller.api.student.create.StudentCreateRequest;
 import com.mx.alternativecourses.api.application.controller.api.student.create.StudentCreateRequestToStudentCreateInputMapper;
 import com.mx.alternativecourses.api.application.controller.api.student.detail.StudentDomainToStudentResponseMapper;
@@ -23,16 +29,17 @@ import com.mx.alternativecourses.api.application.controller.api.subjects.detail.
 import com.mx.alternativecourses.api.application.controller.api.subjects.detail.SubjectResponse;
 import com.mx.alternativecourses.api.application.controller.api.subjects.edit.SubjectUpdateRequest;
 import com.mx.alternativecourses.api.application.controller.api.subjects.edit.SubjectUpdateRequestToSubjectUpdateInputMapper;
-import com.mx.alternativecourses.api.domain.model.LoginInfo;
-import com.mx.alternativecourses.api.domain.model.StudentDomain;
-import com.mx.alternativecourses.api.domain.model.SubjectDomain;
-import com.mx.alternativecourses.api.domain.model.UserDomain;
+import com.mx.alternativecourses.api.domain.model.*;
 import com.mx.alternativecourses.api.domain.use_case.access.login.LoginInput;
 import com.mx.alternativecourses.api.domain.use_case.access.signup.SignupInfo;
 import com.mx.alternativecourses.api.domain.use_case.access.signup.SignupInput;
+import com.mx.alternativecourses.api.infrastructure.persistence.jpa.entity.Score;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.entity.Student;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.entity.Subject;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.entity.User;
+import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.score.ScoreToScoreDomainMapper;
+import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.score.create.ScoreCreateInput;
+import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.score.update.ScoreUpdateInput;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.student.StudentToStudentDomainMapper;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.student.create.StudentCreateInput;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.student.update.StudentUpdateInput;
@@ -46,6 +53,26 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Mappers {
 
+
+	@Bean
+	public Mapper<Score, ScoreDomain> scoreToScoreDomainMapper() {
+		return new ScoreToScoreDomainMapper();
+	}
+
+	@Bean
+	public Mapper<ScoreCreateRequest, ScoreCreateInput> scoreCreateRequestToScoreCreateInputMapper() {
+		return new ScoreCreateRequestToScoreCreateInputMapper();
+	}
+
+	@Bean
+	public Mapper<ScoreUpdateRequest, ScoreUpdateInput> scoreUpdateRequestToScoreUpdateInputMapper() {
+		return new ScoreUpdateRequestToScoreUpdateInputMapper();
+	}
+
+	@Bean
+	public Mapper<ScoreDomain, ScoreDetailResponse> scoreDomainToScoreDetailResponseMapper() {
+		return new ScoreDomainToScoreDetailResponseMapper();
+	}
 
 	@Bean
 	public Mapper<SubjectDomain, SubjectResponse> subjectDomainToSubjectResponseMapper() {

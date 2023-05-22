@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -13,12 +14,10 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Optional;
 
-@Builder
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "SCORE", schema = "public")
+@Accessors(chain = true)
 public class Score {
 
 	@Id
