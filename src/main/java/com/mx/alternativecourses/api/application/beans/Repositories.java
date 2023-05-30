@@ -58,12 +58,14 @@ public class Repositories {
 	@Bean
 	public JpaStudentRepository jpaStudentRepository(
 		StudentRepositoryJpa studentRepositoryJpa,
+		ScoreRepositoryJpa scoreRepositoryJpa,
 		Mapper<Student, StudentDomain> studentToStudentDomainMapper,
 		StudentUpdateCreator studentUpdateCreator,
 		StudentCreateCreator studentCreateCreator
 	) {
 		return new JpaStudentRepository(
 			studentRepositoryJpa,
+			scoreRepositoryJpa,
 			studentToStudentDomainMapper,
 			studentUpdateCreator,
 			studentCreateCreator

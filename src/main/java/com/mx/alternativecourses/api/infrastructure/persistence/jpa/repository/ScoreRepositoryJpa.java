@@ -19,4 +19,7 @@ public interface ScoreRepositoryJpa extends JpaRepository<Score,Long> {
 	);
 
 	List<Score> findByStudent_IdAndDateDeletedIsNull(Long studentId);
+
+	void deleteByStudent(Student student);
+
 }

@@ -9,9 +9,11 @@ import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.st
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.student.create.StudentCreateInput;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.student.update.StudentUpdateCreator;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.posgresql.student.update.StudentUpdateInput;
+import com.mx.alternativecourses.api.infrastructure.persistence.jpa.repository.ScoreRepositoryJpa;
 import com.mx.alternativecourses.api.infrastructure.persistence.jpa.repository.StudentRepositoryJpa;
 import lombok.RequiredArgsConstructor;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -21,6 +23,7 @@ import java.util.stream.Collectors;
 public class JpaStudentRepository implements StudentRepository {
 
 	private final StudentRepositoryJpa studentRepositoryJpa;
+	private final ScoreRepositoryJpa scoreRepositoryJpa;
 	private final Mapper<Student, StudentDomain> studentToStudentDomainMapper;
 	private final StudentUpdateCreator studentUpdateCreator;
 	private final StudentCreateCreator studentCreateCreator;
@@ -53,8 +56,16 @@ public class JpaStudentRepository implements StudentRepository {
 	}
 
 	@Override
+	@Transactional
 	public void delete(Long id) {
-		this.studentRepositoryJpa.delete(this.studentRepositoryJpa.findById(id).get());
+		Optional<Student>  student = this.studentRepositoryJpa.findById(id);
+
+		if(student.isEmpty())
+			new ItemNotFoundException("student.notFound");
+
+		this.scoreRepositoryJpa.deleteByStudent(student.get());
+
+		this.studentRepositoryJpa.delete(student.get());
 	}
 
 	@Override
