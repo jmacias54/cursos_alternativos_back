@@ -19,9 +19,8 @@ public interface StudentRepository {
 	Optional<StudentDomain> findByEmail(
 		String email
 	);
-
 	boolean exists(Long id);
-
+	void delete(Long id);
 	Optional<StudentDomain> find(Long id);
 
 	StudentDomain create(StudentCreateInput input);

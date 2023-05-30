@@ -53,6 +53,11 @@ public class JpaStudentRepository implements StudentRepository {
 	}
 
 	@Override
+	public void delete(Long id) {
+		this.studentRepositoryJpa.delete(this.studentRepositoryJpa.findById(id).get());
+	}
+
+	@Override
 	public Optional<StudentDomain> find(Long id) {
 		return this.studentRepositoryJpa.findById(id).map(this.studentToStudentDomainMapper::map);
 	}

@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin
 @RequiredArgsConstructor
 @RequestMapping(path = GlobalConstants.SUBJECTS, produces = MediaType.APPLICATION_JSON_VALUE)
 public class SubjectsApiController {

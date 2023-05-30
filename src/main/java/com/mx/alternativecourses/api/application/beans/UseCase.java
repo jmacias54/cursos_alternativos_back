@@ -14,6 +14,7 @@ import com.mx.alternativecourses.api.domain.use_case.score.detail.ScoreGetDetail
 import com.mx.alternativecourses.api.domain.use_case.score.list.ScoreSearchUseCase;
 import com.mx.alternativecourses.api.domain.use_case.score.update.ScoreUpdateUseCase;
 import com.mx.alternativecourses.api.domain.use_case.student.create.StudentCrateUseCase;
+import com.mx.alternativecourses.api.domain.use_case.student.delete.StudentDeleteUseCase;
 import com.mx.alternativecourses.api.domain.use_case.student.detail.StudentGetDetailUseCase;
 import com.mx.alternativecourses.api.domain.use_case.student.list.StudentSearchUseCase;
 import com.mx.alternativecourses.api.domain.use_case.student.update.StudentUpdateUseCase;
@@ -29,6 +30,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class UseCase {
 
+
+
+	@Bean
+	public StudentDeleteUseCase studentDeleteUseCase(StudentRepository studentRepository) {
+		return new StudentDeleteUseCase(studentRepository);
+	}
 
 	@Bean
 	public ScoreGetDetailUseCase scoreGetDetailUseCase(ScoreRepository scoreRepository) {

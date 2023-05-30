@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin
 @RequiredArgsConstructor
 @RequestMapping(path = GlobalConstants.SCORES, produces = MediaType.APPLICATION_JSON_VALUE)
 public class ScoresApiController {

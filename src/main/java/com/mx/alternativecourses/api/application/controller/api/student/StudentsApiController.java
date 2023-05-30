@@ -10,6 +10,7 @@ import com.mx.alternativecourses.api.application.controller.api.student.update.S
 import com.mx.alternativecourses.api.domain.model.StudentDomain;
 import com.mx.alternativecourses.api.domain.model.StudentScoresDomain;
 import com.mx.alternativecourses.api.domain.use_case.student.create.StudentCrateUseCase;
+import com.mx.alternativecourses.api.domain.use_case.student.delete.StudentDeleteUseCase;
 import com.mx.alternativecourses.api.domain.use_case.student.detail.StudentGetDetailUseCase;
 import com.mx.alternativecourses.api.domain.use_case.student.list.StudentSearchUseCase;
 import com.mx.alternativecourses.api.domain.use_case.student.update.StudentUpdateUseCase;
@@ -25,6 +26,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin
 @RequiredArgsConstructor
 @RequestMapping(path = GlobalConstants.STUDENTS, produces = MediaType.APPLICATION_JSON_VALUE)
 public class StudentsApiController {
@@ -33,6 +35,7 @@ public class StudentsApiController {
 	private final StudentUpdateUseCase studentUpdateUseCase;
 	private final StudentGetDetailUseCase studentGetDetailUseCase;
 	private final StudentSearchUseCase studentSearchUseCase;
+	private final StudentDeleteUseCase studentDeleteUseCase;
 	private final Mapper<StudentUpdateRequest, StudentUpdateInput> studentUpdateRequestToStudentUpdateInputMapper;
 	private final Mapper<StudentCreateRequest, StudentCreateInput> studentCreateRequestToStudentCreateInputMapper;
 	private final Mapper<StudentDomain, StudentResponse> studentDomainToStudentResponseMapper;
@@ -82,5 +85,11 @@ public class StudentsApiController {
 		return ResponseEntity.ok(
 			list.stream().map(this.studentDomainToStudentResponseMapper::map).collect(Collectors.toList())
 		);
+	}
+
+	@DeleteMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
+		this.studentDeleteUseCase.execute(id);
+		return ResponseEntity.noContent().build();
 	}
 }
